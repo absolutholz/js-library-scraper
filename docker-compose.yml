@@ -1,0 +1,16 @@
+
+version: '3'
+
+services:
+  scraper:
+    build:
+      context: ./scraper
+      dockerfile: Dockerfile
+    # ports:
+    #   - "8080:8080" # server
+    container_name: scraper
+    volumes:
+       - ./scraper:/usr/src/scraper
+       - /usr/src/scraper/node_modules
+    # command: "tail -f /dev/null"
+    command: ["node", "."]
